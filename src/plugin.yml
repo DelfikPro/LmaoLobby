@@ -1,0 +1,9 @@
+name: LMAOLobby
+version: -1
+author: DelfikPro
+main: pro.delfik.lobby.Lobby
+softdepend: [ImplarioLib, YogurtCore, LMAONetwork]
+load: POSTWORLD
+commands:
+  fly:
+    aliases: [flight]
