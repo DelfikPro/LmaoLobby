@@ -108,14 +108,4 @@ public abstract class ServerInfo {
 	public void update(GeneralizedGUI gui) {
 		gui.put(list.indexOf(this), constructItem(), null);
 	}
-	
-	public void updateStatus(boolean online) {
-		this.online = online;
-		
-	}
-	
-	// args[1] - Количество игроков.
-	public void updateInfo(String[] args) {
-		this.players = Integer.parseInt(args[1]);
-	}
 }
