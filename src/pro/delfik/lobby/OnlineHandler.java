@@ -9,16 +9,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import pro.delfik.lmao.core.Person;
-import pro.delfik.lobby.serverserlector.ServerSelector;
-import pro.delfik.lmao.permissions.Rank;
+import pro.delfik.util.Rank;
 
 public class OnlineHandler implements Listener {
 	
-	private static volatile int online;
 	
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onJoin(PlayerJoinEvent e) {
-		online++;
 		resetPlayer(e.getPlayer());
 		Person p = Person.get(e.getPlayer());
 		
@@ -27,17 +24,14 @@ public class OnlineHandler implements Listener {
 			e.setJoinMessage(msg);
 		} else e.setJoinMessage("");
 		p.teleport(Lobby.spawnLocation());
-		ServerSelector.updateInOtherLobbies();
 	}
 	
 	
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onLeave(PlayerQuitEvent e) {
-		online--;
 		Player player = e.getPlayer();
 		Person p = Person.get(player);
 		e.setQuitMessage(p.getRank() != Rank.PLAYER ? "[-] " + player.getDisplayName() + "§f покинул лобби!" : "");
-		ServerSelector.updateInOtherLobbies();
 	}
 	
 	
@@ -48,10 +42,6 @@ public class OnlineHandler implements Listener {
 		p.setHealth(20);
 		p.getInventory().clear();
 		p.getInventory().setItem(0, Items.SERVER_SELECTOR);
-	}
-	
-	public static int getOnline() {
-		return online;
 	}
 	
 }

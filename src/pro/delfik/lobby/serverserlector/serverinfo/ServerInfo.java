@@ -78,9 +78,6 @@ public abstract class ServerInfo {
 			case LOBBY:
 				i = new LobbyInfo(number, online, players);
 				break;
-			case BEDWARS:
-				i = new BedwarsInfo(number, online, players, "null", "kek");
-				break;
 			default:
 				i = instanceFor(type, number, online, players);
 		}

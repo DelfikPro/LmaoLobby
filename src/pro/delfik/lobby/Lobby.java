@@ -29,7 +29,6 @@ public class Lobby extends JavaPlugin {
 		r.regEvent(new Training());
 		r.regEvent(new LobbyProtecter());
 		r.regEvent(new ServerSelector());
-		I.delay(ServerSelector::init, 10);
 	}
 	
 	@Override

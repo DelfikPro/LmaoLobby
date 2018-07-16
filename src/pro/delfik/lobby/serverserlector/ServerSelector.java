@@ -18,8 +18,8 @@ import pro.delfik.net.packet.PacketSSU;
 
 public class ServerSelector implements Listener {
 	
-	public static final GeneralizedGUI gui = new GeneralizedGUI(Bukkit.createInventory(null, 27, "Каталог серверов")
-	, (p, i) -> U.send(p.getName(), ServerInfo.list.get(i).getName()), null);
+	public static final GeneralizedGUI gui = new GeneralizedGUI(Bukkit.createInventory(null, 27, "Каталог серверов"),
+									(p, i) -> U.send(p.getName(), ServerInfo.list.get(i).getName()), null);
 	
 	@EventHandler
 	public void onPacketReceived(PacketEvent e) {
@@ -65,6 +65,5 @@ public class ServerSelector implements Listener {
 		if (e.getWhoClicked().getGameMode() == GameMode.CREATIVE) return;
 		e.setCancelled(true);
 	}
-	
 }
 
