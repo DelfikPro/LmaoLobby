@@ -65,14 +65,11 @@ public abstract class ServerInfo {
 	}
 	
 	
-	public static ServerInfo construct(String receivedQuery) {
-		String[] args = receivedQuery.split("@");
-		String server = args[0];
-		int players = Integer.parseInt(args[1]);
-		boolean online = false;
-		
-		int number = Integer.parseInt(server.replaceAll(".*_", ""));
-		ServerType type = ServerType.parse(server.replaceAll("_.*", ""));
+	public static ServerInfo construct(String name, int players) {
+		boolean online = true;
+		System.out.println(name);
+		int number = Integer.parseInt(name.replaceAll(".*_", ""));
+		ServerType type = ServerType.parse(name.replaceAll("_.*", ""));
 		ServerInfo i;
 		switch (type) {
 			case LOBBY:
