@@ -61,7 +61,6 @@ public class ServerSelector implements Listener {
 	
 	@EventHandler
 	public void onClick(InventoryClickEvent e) {
-		if (!e.getWhoClicked().getWorld().getName().startsWith("LOBBY_")) return;
 		if (e.getWhoClicked().getGameMode() == GameMode.CREATIVE) return;
 		e.setCancelled(true);
 	}
