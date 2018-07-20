@@ -38,7 +38,7 @@ public class Training implements Listener {
 	public static void setCategory(Player p, Category category) {
 		selected.put(p, category);
 		for (int i = 0; i < category.items.length; i++) p.getInventory().setItem(i + 1, category.items[i]);
-		I.delay(() -> p.updateInventory(), 1);
+		I.delay(p::updateInventory, 1);
 		p.setAllowFlight(category == Category.NONE);
 	}
 	
