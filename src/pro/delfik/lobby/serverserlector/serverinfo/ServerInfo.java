@@ -13,26 +13,17 @@ import java.util.List;
 public abstract class ServerInfo {
 	private final int number;
 	private int players;
-	private boolean online;
 	public static final List<ServerInfo> list = new ArrayList<>();
 	public static final HashMap<String, ServerInfo> byName = new HashMap<>();
 
 	protected ServerInfo(int number) {
-		this(number, false, 0);
+		this(number, 0);
 	}
-	protected ServerInfo(int number, boolean online, int players) {
+	protected ServerInfo(int number, int players) {
 		this.number = number;
 		this.players = players;
-		this.online = online;
 		list.add(this);
 		byName.put(getName(), this);
-	}
-	public void setOnline(boolean online) {
-		this.online = online;
-	}
-
-	public boolean getOnline() {
-		return online;
 	}
 
 	public int getNumber() {
@@ -50,11 +41,10 @@ public abstract class ServerInfo {
 	public ItemStack constructItem() {
 		ItemStack copy = getType().item.clone();
 		int players = getPlayers();
-		boolean online = getOnline();
 		ItemMeta m = copy.getItemMeta();
 		m.setDisplayName(constructDisplayName());
 		copy.setItemMeta(m);
-		copy.setAmount(online ? players == 0 ? 1 : players : -1);
+		copy.setAmount(players == 0 ? 1 : players);
 		return copy;
 	}
 	
@@ -73,16 +63,16 @@ public abstract class ServerInfo {
 		ServerInfo i;
 		switch (type) {
 			case LOBBY:
-				i = new LobbyInfo(number, online, players);
+				i = new LobbyInfo(number, players);
 				break;
 			default:
-				i = instanceFor(type, number, online, players);
+				i = instanceFor(type, number, players);
 		}
 		return i;
 	}
 	
-	private static ServerInfo instanceFor(ServerType type, int number, boolean online, int players) {
-		return new ServerInfo(number, online, players) {
+	private static ServerInfo instanceFor(ServerType type, int number, int players) {
+		return new ServerInfo(number, players) {
 			@Override
 			public ServerType getType() {
 				return type;
@@ -91,7 +81,7 @@ public abstract class ServerInfo {
 	}
 	
 	protected String constructDisplayName() {
-		String postfix = online ? players + " §eигрок" + Converter.plural(players, "", "а", "ов") : "§cOffline";
+		String postfix = players + " §eигрок" + Converter.plural(players, "", "а", "ов");
 		return "§f§l" + getType().name + " " + getNumber() + " §e[§f" + postfix + "§e]";
 	}
 	

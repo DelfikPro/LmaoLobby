@@ -35,18 +35,10 @@ public class ServerSelector implements Listener {
 			return;
 		}
 		
-		if (players != -1) info.setPlayers(players);
-		else info.setOnline(false);
+		info.setPlayers(players);
 		
 		info.update(gui);
 		for (Player p : Bukkit.getOnlinePlayers()) p.updateInventory();
-	}
-	
-	public void changeServerStatus(String server, boolean online) {
-		ServerInfo info = ServerInfo.get(server);
-		if (info.getOnline() == online) return;
-		info.setOnline(online);
-		info.update(gui);
 	}
 	
 	

@@ -9,8 +9,8 @@ import java.util.List;
 
 public class LobbyInfo extends ServerInfo {
 	
-	public LobbyInfo(int number, boolean online, int players) {
-		super(number, online, players);
+	public LobbyInfo(int number, int players) {
+		super(number, players);
 	}
 	
 	@Override
