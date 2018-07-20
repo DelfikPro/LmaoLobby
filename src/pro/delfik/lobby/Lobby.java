@@ -1,6 +1,5 @@
 package pro.delfik.lobby;
 
-import lib.I;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
