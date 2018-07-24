@@ -6,7 +6,6 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 import pro.delfik.lmao.core.Registrar;
-import pro.delfik.lobby.serverserlector.ServerSelector;
 
 public class Lobby extends JavaPlugin {
 	
