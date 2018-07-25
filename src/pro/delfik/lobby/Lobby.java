@@ -8,7 +8,6 @@ import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import pro.delfik.lmao.core.Registrar;
-import pro.delfik.lobby.serverserlector.ServerSelector;
 
 import java.io.File;
 
