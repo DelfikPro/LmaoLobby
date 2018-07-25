@@ -1,9 +1,9 @@
 package pro.delfik.lobby;
 
+import lib.Converter;
 import lib.I;
 import net.minecraft.server.v1_8_R1.BlockPosition;
 import net.minecraft.server.v1_8_R1.WorldServer;
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -39,7 +39,7 @@ public class Training implements Listener {
 		selected.put(p, category);
 		for (int i = 0; i < category.items.length; i++) p.getInventory().setItem(i + 1, category.items[i]);
 		I.delay(p::updateInventory, 1);
-		p.setAllowFlight(category == Category.NONE);
+		I.delay(() -> p.setAllowFlight(category == Category.NONE), 1);
 	}
 	
 	@EventHandler
@@ -56,9 +56,6 @@ public class Training implements Listener {
 	
 	@EventHandler
 	public void onMove(PlayerMoveEvent e) {
-		
-		
-		
 		Category category = selected.get(e.getPlayer());
 		Category actual = Category.get(e.getTo());
 		if (category != actual) setCategory(e.getPlayer(), actual);
@@ -66,7 +63,6 @@ public class Training implements Listener {
 			e.getPlayer().teleport(category.spawn);
 			setCategory(e.getPlayer(), category);
 		}
-		
 	}
 	
 	@EventHandler(priority = EventPriority.HIGH)
@@ -157,9 +153,11 @@ public class Training implements Listener {
 	}
 	
 	protected enum Category {
-		NONE(new Location(Bukkit.getWorlds().get(0), -3.5, 195.5, -2.5), 100, Items.NULL, Items.NULL, Items.NULL, Items.NULL),
-		WATERDROP(new Location(Bukkit.getWorlds().get(0), -3.5, 191.5, 79.5, 0, 45), 0, Items.WATER_BUCKET, Items.WEB, Items.LADDER, Items.SLIME_BLOCK),
-		FASTBRIDGE(new Location(Bukkit.getWorlds().get(0), -3.5, 190.3, -86.1, -45, 78), 184, Items.SANDSTONE_BLOCKS, Items.SANDSTONE_BLOCKS, Items.SANDSTONE_BLOCKS, Items.SANDSTONE_BLOCKS);
+		NONE(Converter.toLocation(Lobby.config.getString("spawn"), Lobby.getWorld()), 100, Items.NULL, Items.NULL, Items.NULL, Items.NULL),
+		WATERDROP(Converter.toLocation(Lobby.config.getString("drop"), Lobby.getWorld()), 0, Items.WATER_BUCKET, Items.WEB, Items.LADDER, Items.SLIME_BLOCK),
+		FASTBRIDGE(Converter.toLocation(Lobby.config.getString("bridge"), Lobby.getWorld()), 184, Items.SANDSTONE_BLOCKS, Items.SANDSTONE_BLOCKS, Items.SANDSTONE_BLOCKS, Items.SANDSTONE_BLOCKS),
+		PURCHASE(Converter.toLocation(Lobby.config.getString("purchase"), Lobby.getWorld()), 100, Items.NULL, Items.NULL, Items.NULL, Items.NULL);
+		
 		
 		protected final ItemStack[] items;
 		protected final Location spawn;

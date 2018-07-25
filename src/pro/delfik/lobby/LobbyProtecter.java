@@ -1,6 +1,7 @@
 package pro.delfik.lobby;
 
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,6 +17,7 @@ public class LobbyProtecter implements Listener {
 		if (e.getAction() == Action.PHYSICAL) return;
 		if (e.getPlayer().getGameMode() == GameMode.CREATIVE) return;
 		e.setCancelled(true);
+		if (e.getClickedBlock().getType() == Material.ENDER_PORTAL_FRAME) e.getPlayer().openInventory(PurchaseTraining.getInv());
 	}
 	
 	@EventHandler

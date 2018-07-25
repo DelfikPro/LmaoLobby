@@ -2,7 +2,7 @@ name: LMAOLobby
 version: -1
 author: DelfikPro
 main: pro.delfik.lobby.Lobby
-softdepend: [ImplarioLib, YogurtCore, LMAONetwork]
+softdepend: [ImplarioLib, LMAONetwork]
 load: POSTWORLD
 commands:
   fly:

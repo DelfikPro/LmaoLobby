@@ -4,9 +4,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.configuration.Configuration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import pro.delfik.lmao.core.Registrar;
 import pro.delfik.lobby.serverserlector.ServerSelector;
+
+import java.io.File;
 
 public class Lobby extends JavaPlugin {
 	
@@ -16,6 +20,19 @@ public class Lobby extends JavaPlugin {
 	
 	public static Lobby getInstance() {
 		return instance;
+	}
+	
+	public static Configuration config;
+	static {
+		try {
+			File f = new File("lobby.yml");
+			if (!f.exists()) f.createNewFile();
+			config = YamlConfiguration.loadConfiguration(f);
+		} catch (Exception ignored) {}
+	}
+	
+	public static World getWorld() {
+		return world;
 	}
 	
 	@Override
