@@ -97,7 +97,8 @@ public class ServerInfo {
 		itemstaks.put(ServerType.TEST, Generate.itemstack(Material.COMMAND, 1, 0,
 				"§d§lСервер для администрации.", "§eВсё самое секретное",
 				"§eПроисходит именно здесь!"));
-		itemstaks.put(ServerType.PVP, Generate.itemstack(Material.BOW, 1, 0, ""));
+		itemstaks.put(ServerType.PVP, Generate.itemstack(Material.BOW, 1, 0,
+				"§c§lP§fv§c§lP", "§eОтточи своё умение драться", "§eВ наших побоищах!"));
 		itemstaks.put(ServerType.UNKNOWN, Generate.itemstack(Material.BOW, 1, 0, ""));
 		//TODO
 	}
