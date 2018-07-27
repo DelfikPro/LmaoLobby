@@ -99,6 +99,7 @@ public class ServerInfo {
 				"§eПроисходит именно здесь!"));
 		itemstaks.put(ServerType.PVP, Generate.itemstack(Material.BOW, 1, 0,
 				"§c§lP§fv§c§lP", "§eОтточи своё умение драться", "§eВ наших побоищах!"));
+		itemstaks.put(ServerType.SPLEEF, Generate.itemstack(Material.BOW, 1, 0, ""));
 		itemstaks.put(ServerType.UNKNOWN, Generate.itemstack(Material.BOW, 1, 0, ""));
 		//TODO
 	}
