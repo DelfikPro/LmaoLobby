@@ -4,6 +4,7 @@ import lib.Generate;
 import lib.gui.GeneralizedGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -42,8 +43,8 @@ public class ServerSelector implements Listener {
 	
 	@EventHandler
 	public void onInteract(PlayerInteractEvent e) {
-		if (!(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK)) return;
-		if (Generate.equalsItem(e.getPlayer().getItemInHand(), Items.SERVER_SELECTOR)) {
+		if(!(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK)) return;
+		if(e.getMaterial() == Material.COMPASS){
 			e.getPlayer().openInventory(gui.getInventory());
 		}
 	}

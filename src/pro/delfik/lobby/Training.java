@@ -59,6 +59,7 @@ public class Training implements Listener {
 		Category category = selected.get(e.getPlayer());
 		Category actual = Category.get(e.getTo());
 		if (category != actual) setCategory(e.getPlayer(), actual);
+		if(e.getTo() == null)return;
 		if (e.getTo().getY() < category.respawnAltitude) {
 			e.getPlayer().teleport(category.spawn);
 			setCategory(e.getPlayer(), category);
@@ -66,10 +67,10 @@ public class Training implements Listener {
 	}
 	
 	@EventHandler(priority = EventPriority.HIGH)
-	public void onInteract(PlayerInteractEvent e) {
+	public void onInteract(PlayerInteractEvent e){
 		if (e.getAction() != Action.RIGHT_CLICK_BLOCK) return;
 		Player p = e.getPlayer();
-		Category c = Category.get(p.getItemInHand().getType());
+		Category c = Category.get(e.getMaterial());
 		Location placeAt = e.getClickedBlock().getRelative(e.getBlockFace()).getLocation();
 		if (p.isDead()) return;
 		if (c == Category.NONE) return;
