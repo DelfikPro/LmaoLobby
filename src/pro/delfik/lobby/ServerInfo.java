@@ -6,7 +6,7 @@ import lib.gui.GeneralizedGUI;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import pro.delfik.util.ServerType;
+import implario.util.ServerType;
 
 import java.util.ArrayList;
 import java.util.HashMap;

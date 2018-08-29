@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import pro.delfik.lmao.core.Person;
-import pro.delfik.util.Rank;
+import implario.util.Rank;
 
 public class OnlineHandler implements Listener {
 	

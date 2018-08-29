@@ -1,6 +1,5 @@
 package pro.delfik.lobby;
 
-import lib.Generate;
 import lib.gui.GeneralizedGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -13,7 +12,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import pro.delfik.lmao.core.connection.PacketEvent;
 import pro.delfik.lmao.util.U;
-import pro.delfik.net.packet.PacketSSU;
+import implario.net.packet.PacketSSU;
 
 public class ServerSelector implements Listener {
 	
