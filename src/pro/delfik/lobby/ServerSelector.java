@@ -1,6 +1,5 @@
 package pro.delfik.lobby;
 
-import lib.gui.GeneralizedGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -11,6 +10,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import pro.delfik.lmao.core.connection.PacketEvent;
+import pro.delfik.lmao.outward.gui.GeneralizedGUI;
 import pro.delfik.lmao.util.U;
 import implario.net.packet.PacketSSU;
 

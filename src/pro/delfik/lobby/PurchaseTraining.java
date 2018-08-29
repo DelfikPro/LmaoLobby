@@ -1,13 +1,11 @@
 package pro.delfik.lobby;
 
-import lib.Generate;
-import lib.gui.AdvancedGUI;
-import lib.gui.GUI;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
-import pro.delfik.lobby.purchase.TradeSection;
+import pro.delfik.lmao.outward.gui.AdvancedGUI;
+import pro.delfik.lmao.outward.gui.GUI;
 
 public class PurchaseTraining {
 	

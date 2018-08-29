@@ -1,5 +1,6 @@
 package pro.delfik.lobby;
 
+import implario.util.Converter;
 import lib.Converter;
 import lib.I;
 import net.minecraft.server.v1_8_R1.BlockPosition;
@@ -23,6 +24,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
+import pro.delfik.lmao.util.U;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -154,10 +156,10 @@ public class Training implements Listener {
 	}
 	
 	protected enum Category {
-		NONE(Converter.toLocation(Lobby.config.getString("spawn"), Lobby.getWorld()), 100, Items.NULL, Items.NULL, Items.NULL, Items.NULL),
-		WATERDROP(Converter.toLocation(Lobby.config.getString("drop"), Lobby.getWorld()), 0, Items.WATER_BUCKET, Items.WEB, Items.LADDER, Items.SLIME_BLOCK),
-		FASTBRIDGE(Converter.toLocation(Lobby.config.getString("bridge"), Lobby.getWorld()), 184, Items.SANDSTONE_BLOCKS, Items.SANDSTONE_BLOCKS, Items.SANDSTONE_BLOCKS, Items.SANDSTONE_BLOCKS),
-		PURCHASE(Converter.toLocation(Lobby.config.getString("purchase"), Lobby.getWorld()), 100, Items.NULL, Items.NULL, Items.NULL, Items.NULL);
+		NONE(U.toLocation(Lobby.config.getString("spawn"), Lobby.getWorld()), 100, Items.NULL, Items.NULL, Items.NULL, Items.NULL),
+		WATERDROP(U.toLocation(Lobby.config.getString("drop"), Lobby.getWorld()), 0, Items.WATER_BUCKET, Items.WEB, Items.LADDER, Items.SLIME_BLOCK),
+		FASTBRIDGE(U.toLocation(Lobby.config.getString("bridge"), Lobby.getWorld()), 184, Items.SANDSTONE_BLOCKS, Items.SANDSTONE_BLOCKS, Items.SANDSTONE_BLOCKS, Items.SANDSTONE_BLOCKS),
+		PURCHASE(U.toLocation(Lobby.config.getString("purchase"), Lobby.getWorld()), 100, Items.NULL, Items.NULL, Items.NULL, Items.NULL);
 		
 		
 		protected final ItemStack[] items;

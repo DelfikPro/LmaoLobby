@@ -1,8 +1,8 @@
 package pro.delfik.lobby;
 
-import lib.Generate;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import pro.delfik.lmao.outward.Generate;
 
 public class Items {
 	public static final ItemStack SERVER_SELECTOR = Generate.itemstack(Material.COMPASS, 1, 0, "§f>> §aВыбор сервера §f<<");

@@ -1,6 +1,5 @@
 package pro.delfik.lobby;
 
-import lib.I;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,6 +9,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import pro.delfik.lmao.core.Person;
 import implario.util.Rank;
+import pro.delfik.lmao.outward.item.I;
+import pro.delfik.lmao.util.U;
 
 public class OnlineHandler implements Listener {
 	

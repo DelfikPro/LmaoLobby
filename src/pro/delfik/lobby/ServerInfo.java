@@ -1,12 +1,12 @@
 package pro.delfik.lobby;
 
-import lib.Converter;
-import lib.Generate;
-import lib.gui.GeneralizedGUI;
+import implario.util.Converter;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import implario.util.ServerType;
+import pro.delfik.lmao.outward.Generate;
+import pro.delfik.lmao.outward.gui.GeneralizedGUI;
 
 import java.util.ArrayList;
 import java.util.HashMap;
