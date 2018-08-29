@@ -1,8 +1,5 @@
 package pro.delfik.lobby;
 
-import implario.util.Converter;
-import lib.Converter;
-import lib.I;
 import net.minecraft.server.v1_8_R1.BlockPosition;
 import net.minecraft.server.v1_8_R1.WorldServer;
 import org.bukkit.GameMode;
@@ -24,6 +21,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
+import pro.delfik.lmao.outward.item.I;
 import pro.delfik.lmao.util.U;
 
 import java.util.HashMap;

@@ -19,7 +19,10 @@ public class OnlineHandler implements Listener {
 	public void onJoin(PlayerJoinEvent e) {
 		resetPlayer(e.getPlayer());
 		Person p = Person.get(e.getPlayer());
-		
+		if(p == null){
+			e.setJoinMessage("");
+			return;
+		}
 		if (p.getRank() != Rank.PLAYER) {
 			String msg = "[+] " + p.getDisplayName() + "§f вошёл в лобби!";
 			e.setJoinMessage(msg);
@@ -32,6 +35,10 @@ public class OnlineHandler implements Listener {
 	public void onLeave(PlayerQuitEvent e) {
 		Player player = e.getPlayer();
 		Person p = Person.get(player);
+		if(p == null){
+			e.setQuitMessage("");
+			return;
+		}
 		e.setQuitMessage(p.getRank() != Rank.PLAYER ? "[-] " + player.getDisplayName() + "§f покинул лобби!" : "");
 	}
 	
