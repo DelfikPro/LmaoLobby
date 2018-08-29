@@ -60,6 +60,7 @@ public class Training implements Listener {
 		Category actual = Category.get(e.getTo());
 		if (category != actual) setCategory(e.getPlayer(), actual);
 		if(e.getTo() == null)return;
+		if(category == null)return;
 		if (e.getTo().getY() < category.respawnAltitude) {
 			e.getPlayer().teleport(category.spawn);
 			setCategory(e.getPlayer(), category);
