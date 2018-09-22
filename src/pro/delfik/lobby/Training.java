@@ -56,7 +56,6 @@ public class Training implements Listener {
 	
 	@EventHandler
 	public void onMove(PlayerMoveEvent e) {
-		if (e.getPlayer().getGameMode() != GameMode.SURVIVAL) return;
 		Category category = selected.get(e.getPlayer());
 		Category actual = Category.get(e.getTo());
 		if (category != actual) setCategory(e.getPlayer(), actual);
