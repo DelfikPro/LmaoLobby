@@ -7,49 +7,49 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.Inventory;
 import pro.delfik.lmao.core.Person;
 import implario.util.Rank;
 import pro.delfik.lmao.outward.item.I;
 import pro.delfik.lmao.util.U;
 
+import javax.swing.*;
+
 public class OnlineHandler implements Listener {
-	
-	
 	@EventHandler(priority = EventPriority.HIGH)
-	public void onJoin(PlayerJoinEvent e) {
-		resetPlayer(e.getPlayer());
-		Person p = Person.get(e.getPlayer());
-		if(p == null){
-			e.setJoinMessage("");
-			return;
-		}
-		if (p.getRank() != Rank.PLAYER) {
-			String msg = "[+] " + p.getDisplayName() + "§f вошёл в лобби!";
-			e.setJoinMessage(msg);
-		} else e.setJoinMessage("");
-		p.teleport(Lobby.spawnLocation());
+	public void event(PlayerJoinEvent event) {
+		Player player = event.getPlayer();
+		resetPlayer(player);
+		event.setJoinMessage("");
+		Person person = Person.get(player);
+		if(person == null) return;
+		player.setAllowFlight(true);
+		if(person.getRank() != Rank.PLAYER)
+			event.setJoinMessage("[+] " + player.getDisplayName() + "§f вошёл в лобби!");
+		player.teleport(Lobby.spawnLocation());
 	}
-	
-	
+
 	@EventHandler(priority = EventPriority.LOWEST)
-	public void onLeave(PlayerQuitEvent e) {
-		Player player = e.getPlayer();
-		Person p = Person.get(player);
-		if(p == null){
-			e.setQuitMessage("");
+	public void event(PlayerQuitEvent event) {
+		Player player = event.getPlayer();
+		Person person = Person.get(player);
+		if(person == null){
+			event.setQuitMessage("");
 			return;
 		}
-		e.setQuitMessage(p.getRank() != Rank.PLAYER ? "[-] " + player.getDisplayName() + "§f покинул лобби!" : "");
+		event.setQuitMessage(person.getRank() != Rank.PLAYER ? "[-] " + player.getDisplayName() + "§f покинул лобби!" : "");
 	}
-	
-	
-	
-	private static void resetPlayer(Player p) {
-		I.delay(() -> p.setGameMode(GameMode.SURVIVAL), 1);
-		p.setFoodLevel(20);
-		p.setHealth(20);
-		p.getInventory().clear();
-		p.getInventory().setItem(0, Items.SERVER_SELECTOR);
+
+	private static void resetPlayer(Player player) {
+		I.delay(() -> player.setGameMode(GameMode.SURVIVAL), 1);
+		I.delay(() -> {
+			player.setGameMode(GameMode.SURVIVAL);
+			player.setAllowFlight(true);
+		}, 1);
+		player.setFoodLevel(20);
+		player.setHealth(20);
+		Inventory inventory = player.getInventory();
+		inventory.clear();
+		inventory.setItem(0, Items.SERVER_SELECTOR);
 	}
-	
 }

@@ -17,9 +17,6 @@ public class LobbyProtecter implements Listener {
 		if (e.getAction() == Action.PHYSICAL) return;
 		if (e.getPlayer().getGameMode() == GameMode.CREATIVE) return;
 		e.setCancelled(true);
-		if(e.getClickedBlock() == null)return;
-		if(e.getClickedBlock().getType() == Material.ENDER_PORTAL_FRAME)
-			e.getPlayer().openInventory(PurchaseTraining.getInv());
 	}
 	
 	@EventHandler

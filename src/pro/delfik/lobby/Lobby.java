@@ -12,14 +12,9 @@ import pro.delfik.lmao.core.Registrar;
 import java.io.File;
 
 public class Lobby extends JavaPlugin {
-	
-	private static Lobby instance;
+
 	private static Location spawn;
 	private static World world;
-	
-	public static Lobby getInstance() {
-		return instance;
-	}
 	
 	public static Configuration config;
 	static {
@@ -36,7 +31,6 @@ public class Lobby extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
-		instance = this;
 		world = initWorld();
 		spawn = world.getSpawnLocation().add(0.5, 0.5, 0.5);
 		Registrar r = new Registrar(this);
