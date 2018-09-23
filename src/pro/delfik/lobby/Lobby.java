@@ -7,7 +7,7 @@ import org.bukkit.World;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import pro.delfik.lmao.core.Registrar;
+import pro.delfik.lmao.util.Registrar;
 
 import java.io.File;
 

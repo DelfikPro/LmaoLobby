@@ -8,12 +8,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
-import pro.delfik.lmao.core.Person;
+import pro.delfik.lmao.user.Person;
 import implario.util.Rank;
 import pro.delfik.lmao.outward.item.I;
-import pro.delfik.lmao.util.U;
-
-import javax.swing.*;
 
 public class OnlineHandler implements Listener {
 	@EventHandler(priority = EventPriority.HIGH)

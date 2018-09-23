@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import pro.delfik.lmao.core.connection.PacketEvent;
+import pro.delfik.lmao.ev.added.PacketEvent;
 import pro.delfik.lmao.outward.gui.GeneralizedGUI;
 import pro.delfik.lmao.util.U;
 import implario.net.packet.PacketSSU;
